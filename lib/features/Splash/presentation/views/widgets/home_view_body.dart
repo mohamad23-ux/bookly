@@ -8,8 +8,29 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [CustomAppBar()],
+    return const Column(
+      children: [CustomAppBar(), CustomListViewItem()],
+    );
+  }
+}
+
+class CustomListViewItem extends StatelessWidget {
+  const CustomListViewItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * .25,
+      width: MediaQuery.of(context).size.width * .38,
+      child: AspectRatio(
+        aspectRatio: 2 / 4,
+        child: Container(
+          decoration: const BoxDecoration(
+              // color: Colors.red,
+              image: DecorationImage(
+                  image: AssetImage(AssetsData.testImage), fit: BoxFit.fill)),
+        ),
+      ),
     );
   }
 }
