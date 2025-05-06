@@ -9,7 +9,7 @@ class CustomBookImage extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width * .38,
       child: AspectRatio(
-        aspectRatio: 2 / 4,
+        aspectRatio: 2.6 / 4,
         child: Container(
           decoration: const BoxDecoration(
               // color: Colors.red,
