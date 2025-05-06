@@ -1,7 +1,10 @@
 import 'package:bookly/constant.dart';
-import 'package:bookly/features/Splash/presentation/views/splash_view.dart';
+import 'package:bookly/core/utils/app_route.dart';
+import 'package:bookly/features/Splash/presentation/views/splashView/splash_view.dart';
+import 'package:bookly/features/Splash/presentation/views/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const BooklyApp());
@@ -12,10 +15,14 @@ class BooklyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp.router(
+      routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: kPrimaryColor),
-      home: const SplashView(),
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: kPrimaryColor,
+        textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
+      ),
     );
   }
 }
+
