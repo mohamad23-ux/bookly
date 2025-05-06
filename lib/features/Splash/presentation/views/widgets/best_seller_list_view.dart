@@ -69,7 +69,9 @@ class BestSellerListViewItem extends StatelessWidget {
                           "19.99 €",
                           style: Styles.TextStyle20,
                         ),
-                        BookRating()
+                        BookRating(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                        )
                       ],
                     ),
                   )
