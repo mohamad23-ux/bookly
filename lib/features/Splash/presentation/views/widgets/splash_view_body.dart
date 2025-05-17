@@ -1,6 +1,4 @@
-import 'package:bookly/constant.dart';
 import 'package:bookly/core/utils/app_route.dart';
-import 'package:bookly/features/Splash/presentation/views/homeview.dart';
 import 'package:bookly/features/Splash/presentation/views/widgets/Sliding_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -25,16 +23,9 @@ class _SplashViewBodyState extends State<SplashViewBody>
     NavigateToHome();
   }
 
-  void NavigateToHome() {
-    Future.delayed(const Duration(seconds: 2), () {
-      GoRouter.of(context).push(AppRouter.KHomeView);
-      // Get.to(() => const Homeview(), transition: Transition.fade,duration: kTransitionDuration);
-    });
-  }
-
   @override
   void dispose() {
-    animationController.dispose(); // مهم جداً لتحرير الموارد
+    animationController.dispose(); //  مهم جداً لتحرير الموارد
     super.dispose();
   }
 
@@ -67,5 +58,12 @@ class _SplashViewBodyState extends State<SplashViewBody>
     ).animate(animationController);
 
     animationController.forward();
+  }
+
+  void NavigateToHome() {
+    Future.delayed(const Duration(seconds: 2), () {
+      GoRouter.of(context).push(AppRouter.KHomeView);
+      // Get.to(() => const Homeview(), transition: Transition.fade,duration: kTransitionDuration);
+    });
   }
 }

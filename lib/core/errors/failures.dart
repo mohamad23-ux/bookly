@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:dio/dio.dart';
 
 abstract class Failure {
@@ -32,11 +34,15 @@ class ServerFailure extends Failure {
         }
         return ServerFailure('Unexpected Error, Please try again!');
       default:
+        print("++++++++++++++++++++++++++++++++++++++");
+        print(dioError.response.toString());
         return ServerFailure('Opps There was an Error, Please try again');
     }
   }
 
   factory ServerFailure.fromResponse(int? statusCode, dynamic response) {
+    print("===+===+===+===+===+===+=====+======++++==+=+=++======+");
+    print(response);
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
       return ServerFailure(response['error']['message']);
     } else if (statusCode == 404) {
@@ -44,6 +50,8 @@ class ServerFailure extends Failure {
     } else if (statusCode == 500) {
       return ServerFailure('Internal Server error, Please try later');
     } else {
+      print("=//=//=//==//=//=");
+      log(response.data);
       return ServerFailure('Opps There was an Error, Please try again');
     }
   }
